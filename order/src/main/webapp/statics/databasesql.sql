@@ -1,0 +1,40 @@
+/*食物*/
+CREATE TABLE `food` (
+	`foodid` INT(11) NOT NULL AUTO_INCREMENT,
+	`foodname` VARCHAR(15) NOT NULL DEFAULT '0' COLLATE 'utf8_bin',
+	`foodprice` DOUBLE NOT NULL DEFAULT '0',
+	`foodtype` VARCHAR(15) NOT NULL DEFAULT '0' COLLATE 'utf8_bin',
+	`foodimage` VARCHAR(200) NOT NULL DEFAULT '0' COLLATE 'utf8_bin',
+	`maxoutput` INT(11) NOT NULL DEFAULT '10',
+	PRIMARY KEY (`foodid`)
+)
+COLLATE='utf8_bin'
+ENGINE=MyISAM
+AUTO_INCREMENT=83
+;
+/*点餐*/
+CREATE TABLE `orderfood` (
+	`userid` INT(11) NOT NULL,
+	`foodid` INT(11) NOT NULL DEFAULT '0',
+	`count` INT(11) NOT NULL DEFAULT '0',
+	PRIMARY KEY (`foodid`, `userid`)
+)
+COLLATE='utf8_bin'
+ENGINE=MyISAM
+;
+
+/*用户*/
+CREATE TABLE `user` (
+	`userid` INT(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID主键',
+	`username` VARCHAR(15) NOT NULL DEFAULT '0' COLLATE 'utf8_bin',
+	`password` VARCHAR(15) NOT NULL DEFAULT '0' COLLATE 'utf8_bin',
+	`money` DOUBLE UNSIGNED ZEROFILL NULL DEFAULT NULL,
+	`phonenum` VARCHAR(11) NOT NULL COLLATE 'utf8_bin',
+	`mess` VARCHAR(200) NULL DEFAULT NULL COLLATE 'utf8_bin',
+	PRIMARY KEY (`userid`)
+)
+COLLATE='utf8_bin'
+ENGINE=MyISAM
+AUTO_INCREMENT=17
+;
+

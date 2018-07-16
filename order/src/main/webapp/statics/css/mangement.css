@@ -1,0 +1,163 @@
+body{
+    background:linear-gradient(#000 0%,#EED2EE 80%);
+    background:url(../imgs/banner.jpg);
+    background-attachment: fixed;
+}
+
+li{
+    list-style: none;
+}
+
+.header{
+    background:rgb(63, 58, 50);
+    padding-top: 10px;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+    /* background:#000; */
+}
+
+.header h2{
+
+    color:white;
+}
+
+.comwidth{
+    width: 960px;
+    margin: 0 auto;
+    height:100%;
+    padding: 40px 40px;
+    background: rgba(0, 0, 0, 0.3);
+
+}
+.main{
+    text-align: center;
+
+
+}
+
+.main a{
+    color: rgba(0, 0, 0, 0.5);
+}
+
+ul a{
+    color:white;
+}
+.main_right{
+    margin-left: 30px;
+    text-align: center;
+}
+#selectMenu{
+    display: inline-block;
+    background:url(../imgs/selectMenu.png);
+    width:150px;
+    height:66px;
+    border: none;
+    border-radius:5px;
+
+}
+#editMenu{
+    display: inline-block;
+    background:url(../imgs/editMenu.png);
+    width:150px;
+    height:66px;
+    border: none;
+    border-radius:5px;
+
+}
+#addMenu{
+    display: inline-block;
+    background:url(../imgs/addMenu.png);
+    width:150px;
+    height:66px;
+    border: none;
+    border-radius:5px;
+
+}
+
+#selectUser{
+    background:url(../imgs/selectUser.png);
+    width:150px;
+    height:66px;
+    border: none;
+    border-radius:5px;
+}
+.tab_gongneng{
+    width:250px;
+    height: 300px;
+   /* padding:0px 0px 5px 0px;*/
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px 2px;
+    border-radius: 10px;
+}
+
+/*.header_logo img{
+    width:100px;
+    height:100px;
+    border-radius:50px;
+    margin-left: 50px;
+}*/
+
+.header_logo h3{
+    margin:20px 60px;
+}
+
+.flip-container {
+    perspective: 1000px;
+}
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+    width: 230px;
+    height: 230px;
+}
+
+/* flip speed goes here */
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+    z-index: 2;
+}
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);
+    position:relative;
+}
+.back p{
+    width:230px;
+    margin:0 auto;
+    height:220px;
+    overflow:hidden;
+}
+/*.back input{
+    position:absolute;
+    right: 7px;
+    bottom: 3px;
+}*/
+.footer{
+    margin-top:15px;
+    padding-top:30px;
+    height: 80px;
+    text-align:center;
+    background:rgb(49, 43, 49);
+    color:white;
+}

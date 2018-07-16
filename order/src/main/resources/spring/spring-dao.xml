@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--加载配置文件-->
+
+    <context:property-placeholder location="classpath*:jdbc.properties"/>
+    <!--扫描注解-->
+
+    <!--配置数据源-->
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+
+        <!--加载配置文件  -->
+        <!--配置dataSource-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--<property name="configLocation" value="configuration.xml"/>-->
+        <!--配置别名-->
+        <property name="typeAliasesPackage" value="com.rimi.cs.pojo"/>
+        <!--配置映射文件-->
+        <property name="mapperLocations" value="classpath*:mapper/*Mapper.xml"/>
+
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <!-- 这里的几个配置主要演示如何使用，如果不理解，一定要去掉下面的配置 -->
+                    <property name="properties">
+                        <value>
+                            helperDialect=mysql
+                            reasonable=true
+                            supportMethodsArguments=true
+                            params=count=countSql
+                            autoRuntimeDialect=true
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
+    </bean>
+    <!--配置mabits扫描器,给mabits的所有接口配置bean，就不需要在对每一个接口都进行配置
+ ，用于在接下来初始化的时候需要调用接口，提供参数-->
+    <bean id="configurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.rimi.cs.dao"/>
+    </bean>
+
+    <!--<context:component-scan base-package="com.rimi.cs.service"/>-->
+</beans>
